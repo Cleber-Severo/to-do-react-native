@@ -17,7 +17,7 @@ export default Home;
 
 const styles = StyleSheet.create({
 	wrapper: {
-		backgroundColor: colors['gray-600'],
+		backgroundColor: colors['gray-500'],
 		flex: 1,
 	},
 });
