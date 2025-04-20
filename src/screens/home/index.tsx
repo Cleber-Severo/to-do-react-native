@@ -2,11 +2,13 @@ import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
 import { colors } from '../../../styles/colors';
 import Header from '../../components/Header';
+import Todo from '../../components/Todo';
 
 const Home = () => {
 	return (
 		<View style={styles.wrapper}>
 			<Header />
+			<Todo />
 		</View>
 	);
 };
