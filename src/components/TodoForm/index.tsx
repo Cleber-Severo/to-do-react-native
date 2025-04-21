@@ -35,7 +35,7 @@ const TodoForm = ({ addTask }: TodoFormProps) => {
 				onBlur={handleBlur}
 			/>
 
-			<TouchableOpacity style={styles.button} onPress={handleAddTodo}>
+			<TouchableOpacity style={styles.button} onPress={handleAddTodo} disabled={!taskText.length}>
 				<AntDesign name='pluscircleo' size={18} color='white' />
 			</TouchableOpacity>
 		</View>

@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Pressable } from 'react-native';
 import React from 'react';
 import { ITask } from '../../types/todo';
 import Checkbox from '../Checkbox';
@@ -20,6 +20,7 @@ const TodoItem = ({ todoItem, deleteTask, updateTask }: TodoItemProps) => {
 			<View style={styles.subContainer}>
 				<Checkbox selected={isCompleted} onClick={() => updateTask(id)} />
 				<Text
+					numberOfLines={3}
 					style={{
 						...styles.text,
 						textDecorationLine: isCompleted ? 'line-through' : 'none',
@@ -30,9 +31,9 @@ const TodoItem = ({ todoItem, deleteTask, updateTask }: TodoItemProps) => {
 				</Text>
 			</View>
 
-			<TouchableOpacity onPress={() => deleteTask(id)}>
+			<Pressable onPress={() => deleteTask(id)} style={styles.button}>
 				<FontAwesome5 name='trash-alt' size={18} color={colors['gray-300']} on />
-			</TouchableOpacity>
+			</Pressable>
 		</View>
 	);
 };
