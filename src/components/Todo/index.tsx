@@ -39,7 +39,8 @@ const Todo = () => {
 	};
 
 	const deleteTask = (id: string) => {
-		console.log('deleteTask fn');
+		const newList = todoList.filter((task) => task.id !== id);
+		setTodoList([...newList]);
 	};
 
 	return (
