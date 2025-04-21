@@ -5,11 +5,8 @@ import { styles } from './styles';
 import UUID from 'react-native-uuid'; // Use this for generating UUIDs
 import EmptyTodo from '../EmptyTodo';
 import TodoInfo from '../TodoInfo';
-interface ITask {
-	id: string;
-	text: string;
-	isCompleted: boolean;
-}
+import { ITask } from '../../types/todo';
+import TodoItem from '../TodoItem';
 
 const Todo = () => {
 	const [todoList, setTodoList] = useState<ITask[]>([]);
@@ -27,6 +24,24 @@ const Todo = () => {
 		setTodoList((prev) => [...prev, newTask]);
 	};
 
+	const updateTask = (id: string) => {
+		const selectedTask = todoList.find((task) => task.id === id);
+
+		const newTodoList = todoList.map((task) => {
+			const isCompleted = task.id !== id ? task.isCompleted : !task.isCompleted;
+
+			return { ...task, isCompleted };
+		});
+
+		if (!selectedTask) return;
+
+		setTodoList(newTodoList);
+	};
+
+	const deleteTask = (id: string) => {
+		console.log('deleteTask fn');
+	};
+
 	return (
 		<View style={styles.container}>
 			<TodoForm addTask={addTask} />
@@ -37,7 +52,9 @@ const Todo = () => {
 				data={todoList}
 				keyExtractor={(item) => item.id}
 				showsVerticalScrollIndicator={false}
-				renderItem={({ item }) => <Text>{item.text}</Text>}
+				renderItem={({ item }) => (
+					<TodoItem deleteTask={deleteTask} todoItem={item} updateTask={updateTask} />
+				)}
 				ListEmptyComponent={() => <EmptyTodo />}
 				style={styles.list}
 			/>

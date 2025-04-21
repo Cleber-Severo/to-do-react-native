@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 		flex: 1,
 		paddingTop: 70,
-		marginTop: 20,
+		// marginTop: 20,
 		gap: 7,
 		borderTopWidth: 1,
 		borderTopColor: colors['gray-400'],
