@@ -19,7 +19,15 @@ const TodoItem = ({ todoItem, deleteTask, updateTask }: TodoItemProps) => {
 		<View style={styles.container}>
 			<View style={styles.subContainer}>
 				<Checkbox selected={isCompleted} onClick={() => updateTask(id)} />
-				<Text style={styles.text}>{text}</Text>
+				<Text
+					style={{
+						...styles.text,
+						textDecorationLine: isCompleted ? 'line-through' : 'none',
+						color: isCompleted ? colors['gray-300'] : colors['gray-100'],
+					}}
+				>
+					{text}
+				</Text>
 			</View>
 
 			<TouchableOpacity onPress={() => deleteTask(id)}>

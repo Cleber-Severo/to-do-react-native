@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		cursor: 'pointer',
-		width: 20,
-		height: 20,
+		width: 18,
+		height: 18,
 	},
 });
